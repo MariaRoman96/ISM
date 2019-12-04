@@ -57,8 +57,6 @@ public:
 		int capsuleIndex = 0;
 	UPROPERTY()
 		UICE_Stage* stageData;
-// 	UPROPERTY()
-// 		UInteractComponent* interactComponent;
 
 
 };

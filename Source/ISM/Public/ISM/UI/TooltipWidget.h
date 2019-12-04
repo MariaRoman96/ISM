@@ -18,7 +18,6 @@ class ISM_API UTooltip : public UUserWidget
 		virtual void NativeConstruct() override;
 		
 		virtual void BeginDestroy() override;
-		//virtual void Tick(FGeometry MyGeometry, float InDeltaTime) override;
 
 		//On begin play get all animations
 		UFUNCTION(BlueprintCallable)
@@ -99,11 +98,6 @@ class ISM_API UTooltip : public UUserWidget
 			float speedOtherAnims = 0.f;
 
 
-// 		void MarkPendingKill() override {
-// 			if (!IsRooted()) {
-// 				Super::MarkPendingKill();
-// 			}
-// 		}
 
 	private:
 		TMap<FString, class UWidgetAnimation*> WidgetAnimation;

@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "SWorldInteractScreenLayer.h"
 #include "Widgets/Layout/SBox.h"
 #include "Components/WidgetComponent.h"

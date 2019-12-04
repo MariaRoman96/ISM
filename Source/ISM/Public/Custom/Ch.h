@@ -28,10 +28,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USkeletalMeshComponent* mMesh;
 
-	/*virtual void DestroyActor() override;*/
-// 	virtual bool CanInteractWithActionType(FActionButton actionButton);
-// 	virtual TArray<UMeshComponent *> GetActorMesh();
-// 	virtual TArray<UShapeComponent *> GetActorCollision();
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason);
 	virtual void PostEditMove(bool bFinished);
 

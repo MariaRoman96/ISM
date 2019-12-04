@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "Ch.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -51,78 +49,6 @@ ACh::ACh() {
 	GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
 
 }
-
-// void ACh::Interact(AActor *actor, FActionButton actionButton)
-// {
-// 	IInteractInterface::Interact(actor, actionButton);
-// 
-// 	InteractComponent->Interact(actor, actionButton);
-// 
-// }
-
-// void ACh::DestroyActor()
-// {
-// 	Destroy(this);
-// }
-
-// bool ACh::CanInteractWithActionType(FActionButton actionButton)
-// {
-// 	return false;
-// }
-
-// TArray<UMeshComponent *> ACh::GetActorMesh() {
-// 	TArray<UMeshComponent*> meshes;
-// 	meshes.Add(Cast<UMeshComponent>(GetMesh()));
-// 	TArray<UActorComponent*> ActorCArray = GetComponentsByClass(UMeshComponent::StaticClass());
-// 	//TArray<UActorComponent*> ActorCArray = GetComponentsByTag(UMeshComponent::StaticClass(), "light");
-// 	//TArray<UActorComponent*> ActorCArray2 = GetComponentsByTag(UMeshComponent::StaticClass(), "shine");
-// 	for (int i = 0; i < ActorCArray.Num(); i++) {
-// 		meshes.Add(Cast<UMeshComponent>(ActorCArray[i]));
-// 	}
-// 	// 	for (int i = 0; i < ActorCArray2.Num(); i++) {
-// 	// 		meshes.Add(Cast<UMeshComponent>(ActorCArray2[i]));
-// 	// 	}
-// 	return meshes;
-// }
-
-// TArray<UShapeComponent *> ACh::GetActorCollision()
-// {
-// 	TArray<UShapeComponent*> collisions;
-// 	TArray<UActorComponent*> ActorBArray = GetComponentsByTag(UBoxComponent::StaticClass(), "ModifiableShape");
-// 	TArray<UActorComponent*> ActorSArray = GetComponentsByTag(USphereComponent::StaticClass(), "ModifiableShape");
-// 	TArray<UActorComponent*> ActorCArray = GetComponentsByTag(UCapsuleComponent::StaticClass(), "ModifiableShape");
-// 
-// 	if (ActorBArray.Num() != 0)
-// 	{
-// 		for (int i = 0; i < ActorBArray.Num(); i++) {
-// 			collisions.Add(Cast<UShapeComponent>(ActorBArray[i]));
-// 		}
-// 	}
-// 	if (ActorSArray.Num() != 0)
-// 	{
-// 		for (int i = 0; i < ActorSArray.Num(); i++) {
-// 			collisions.Add(Cast<UShapeComponent>(ActorSArray[i]));
-// 		}
-// 	}
-// 	if (ActorCArray.Num() != 0)
-// 	{
-// 		for (int i = 0; i < ActorCArray.Num(); i++) {
-// 			collisions.Add(Cast<UShapeComponent>(ActorCArray[i]));
-// 		}
-// 	}
-// 
-// 	return collisions;
-// }
-
-// EPriority ACh::GetPriority()
-// {
-// 	return m_priority;
-// }
-// 
-// bool ACh::GetPriorityRepeat()
-// {
-// 	return m_priorityRepeat;
-// }
 
 void ACh::EndPlay(const EEndPlayReason::Type EndPlayReason) {
 	if (EndPlayReason == EEndPlayReason::EndPlayInEditor) {

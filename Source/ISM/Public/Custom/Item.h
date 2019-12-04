@@ -23,15 +23,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* mMesh;
 
-	/*virtual void DestroyActor() override;*/
-// 	virtual bool CanInteractWithActionType(FActionButton actionButton);
-// 	virtual TArray<UMeshComponent *> GetActorMesh();
-// 	virtual TArray<UShapeComponent *> GetActorCollision();
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason);
 	virtual void PostEditMove(bool bFinished);
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 };

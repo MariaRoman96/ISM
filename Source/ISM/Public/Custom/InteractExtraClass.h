@@ -220,15 +220,12 @@ class ISM_API UInteractExtraClass : public UInteractCoreClass
 	GENERATED_BODY()
 
 public:	
-	// Sets default values for this component's properties
 	UInteractExtraClass();
 
 protected:
-	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 };

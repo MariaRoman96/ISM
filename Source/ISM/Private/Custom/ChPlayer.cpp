@@ -22,7 +22,6 @@
 
 AChPlayer::AChPlayer()
 {
-	// Set this Pawn to call Tick() every frame. You can turn this off to iimprove performance if you don´t need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	// AUTOPOSSES
@@ -95,43 +94,6 @@ void AChPlayer::SetupPlayerInputComponent(class UInputComponent* PlayerInputComp
 
 /*******************************************************************_BEGIN PLAY / TICK_***********************************************************************/
 
-// void AChPlayer::ExecuteNearTriggers() {
-// 	TArray<UPrimitiveComponent*> InteractiveItems;
-// 	GetOverlappingComponents(InteractiveItems);
-// 
-// 	for (UPrimitiveComponent* itemC : InteractiveItems)
-// 	{
-// 		if (itemC->GetOwner()->GetClass()->ImplementsInterface(UInteractInterface::StaticClass()) && itemC->GetOwner()->GetName() != GetName())
-// 		{
-// 			IInteractInterface* itemClass = Cast<IInteractInterface>(itemC->GetOwner());
-// 
-// 			UActorComponent* actorComponent = itemC->GetOwner()->GetComponentByClass(UInteractComponent::StaticClass());
-// 			UInteractComponent* interactComponent = Cast<UInteractComponent>(actorComponent);
-// 
-// 			if (interactComponent && interactComponent->interactDataArray.Num() > 0 && interactComponent->interactDataArray.IsValidIndex(interactComponent->m_currentStage))
-// 			{
-// 				FActorSelect actorSelect = { true, false, nullptr, NAME_None };
-// 				//FGetCustomActor getCustomActor = { AChPlayer::StaticClass(), NAME_None };
-// 				FFunctionActorData actorData = { EGetActorList::getThisActor, {}, { false } };
-// 				ETriggerSelect innerC = ETriggerSelect::Ignore;
-// 				ETriggerSelect triggerC = ETriggerSelect::Ignore;
-// 				ETriggerSelect highlightC = ETriggerSelect::Ignore;
-// 				if (itemC->GetName().Contains("InnerCapsule")) {
-// 					innerC = ETriggerSelect::Enter;
-// 				}
-// 				else if (itemC->GetName().Contains("OutsideCapsule")) {
-// 					highlightC = ETriggerSelect::Enter;
-// 				}
-// 				else if (itemC->GetName().Contains("TriggerCapsule")) {
-// 					triggerC = ETriggerSelect::Enter;
-// 				}
-// 				FExecuteTrigger executeData = { actorSelect, actorData, triggerC, highlightC, innerC };
-// 				UInteractComponent::ExecuteTrigger(this, executeData, interactComponent);
-// 			}
-// 		}
-// 	}
-// }
-
 void AChPlayer::BeginPlay()
 {
 	Super::BeginPlay();
@@ -150,30 +112,6 @@ void AChPlayer::InteractAction(FActionButton actionButton)
 	IPlayerInterface::InteractAction(actionButton);
 
 }
-
-// void AChPlayer::Interact(AActor* actor, FActionButton actionButton)
-// {
-// 
-// 	if (actionButton.actionButton == EAction::R) {
-// 		// IMPLEMENT RELOAD
-// 	}
-// 	if (actionButton.actionButton == EAction::SHIFT) {
-// 
-// 	}
-// 	if (actionButton.actionButton == EAction::Q) {
-// 
-// 	}
-// 	if (actionButton.actionButton == EAction::F) {
-// 
-// 	}
-// }
-
-// void AChPlayer::DestroyActor()
-// {
-// 	// IMPLEMENT CUSTOM DESTROY HERE
-// 
-// 	Super::DestroyActor();
-// }
 
 void AChPlayer::OnResetVR()
 {

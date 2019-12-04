@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -31,11 +30,9 @@ class ISM_API UInteractFunctionsClass : public UInteractMacrosClass
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
 	UInteractFunctionsClass();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
@@ -58,7 +55,6 @@ public:
 
 	FFunctionActorData GetFunctionCurrentActorDataCheck(FFunctionCheckDataBase functionData);
 
-	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	void CallDelegateFunction(EActionList tempEnumNameCore, AActor* actor, FFunctionDataBase function, UInteractComponent* interactComponent);

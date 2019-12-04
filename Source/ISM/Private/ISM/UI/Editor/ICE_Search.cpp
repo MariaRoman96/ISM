@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 
 #include "ICE_Search.h"
 #include "ICE_ButtonImage.h"

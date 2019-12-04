@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -48,12 +47,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 		UCheckBox* GetDisableWarnings();
 
-// 	UFUNCTION(BlueprintImplementableEvent)
-// 		UHorizontalBox* GetEnumButton();
 	UFUNCTION(BlueprintImplementableEvent)
 		UICE_Enum* GetEnum();
-// 	UFUNCTION(BlueprintImplementableEvent)
-// 		UHorizontalBox* GetEnumCheckButton();
 	UFUNCTION(BlueprintImplementableEvent)
 		UICE_Enum* GetEnumCheck();
 	UFUNCTION(BlueprintImplementableEvent)
@@ -70,12 +65,8 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 		UEditableTextBox* GetActorTag();
-// 	UFUNCTION(BlueprintImplementableEvent)
-// 		UHorizontalBox* GetActorNameButton();
 	UFUNCTION(BlueprintImplementableEvent)
 		UICE_Object* GetActorClass();
-// 	UFUNCTION(BlueprintImplementableEvent)
-// 		UHorizontalBox* GetActorClassButton();
 
 	UFUNCTION(BlueprintImplementableEvent)
 		UHorizontalBox* GetEnumHolder();

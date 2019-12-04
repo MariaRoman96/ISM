@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -18,7 +17,6 @@
 #include "ICE_BasicFunctionArray.h"
 #include "ICE_Tooltip.generated.h"
 
-//struct FSlateBrush;
 
 UCLASS()
 class ISM_API UICE_Tooltip : public UUserWidget
@@ -149,7 +147,5 @@ public:
 		int stage = 0;
 	UPROPERTY()
 		int tooltipIndex = 0;
-// 	UPROPERTY()
-// 		UInteractComponent* interactComponent;
 
 };

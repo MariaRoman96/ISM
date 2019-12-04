@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "InteractMacrosClass.h"
 #include "InteractComponent.h"
 
@@ -9,7 +6,6 @@ TArray<FString> UInteractMacrosClass::actorBaseFunctionName;
 TArray<FString> UInteractMacrosClass::actorCheckBaseFunctionName;
 TArray<FString> UInteractMacrosClass::enumFunctions;
 
-//If Function have one actor (also if have more)
 FFunctionActorData UInteractMacrosClass::GetFunctionActorDataCore(FFunctionData functionData)
 {
 	if (functionData.enumNameCore == EActionListCore::executeAction) {
@@ -621,11 +617,8 @@ void UInteractMacrosClass::CallDelegateCoreFunction(EActionListCore tempEnumName
 }
 
 
-// Sets default values for this component's properties
 UInteractMacrosClass::UInteractMacrosClass()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = false;
 
 
@@ -799,56 +792,24 @@ void UInteractMacrosClass::DelayFunction(UInteractComponent* interactComponent, 
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].delayFunction), interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].delayFunction.customVariableSet, FDelayFunction::StaticStruct(), interactComponent);
 			UInteractComponent::DelayFunction(actor, interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].delayFunction, interactComponent);
 		}
-		// 		else if (interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].enumName == EActionList::wrapperFunction) {
-		// 			int wrapperInd = wrapperIndex == -1 ? interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].wrapperFunction.wrapperIndex : wrapperIndex;
-		// 			if (wrapperInd > -1) {
-		// 				if (interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].wrapperFunction.functions[wrapperInd].enumNameCore == EActionListCore::delayFunction) {
-		// 					ISM_PRINTLOG("PRE STAGE - WRAPPER")
-		// 				}
-		// 			}
-		// 		}
 	}
 	else if (actionStageType == EActionStageType::Init) {
 		if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].enumNameCore == EActionListCore::delayFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].delayFunction), interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].delayFunction.customVariableSet, FDelayFunction::StaticStruct(), interactComponent);
 			UInteractComponent::DelayFunction(actor, interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].delayFunction, interactComponent);
 		}
-		// 		else if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].enumName == EActionList::wrapperFunction) {
-		// 			int wrapperIndex = interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].wrapperFunction.wrapperIndex;
-		// 			if (wrapperIndex > -1) {
-		// 				if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].wrapperFunction.functions[wrapperIndex].enumNameCore == EActionListCore::delayFunction) {
-		// 					ISM_PRINTLOG("INIT - WRAPPER")
-		// 				}
-		// 			}
-		// 		}
 	}
 	else if (actionStageType == EActionStageType::Interact) {
 		if (interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].enumNameCore == EActionListCore::delayFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].delayFunction), interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].delayFunction.customVariableSet, FDelayFunction::StaticStruct(), interactComponent);
 			UInteractComponent::DelayFunction(actor, interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].delayFunction, interactComponent);
 		}
-		// 		else if (interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].enumName == EActionList::wrapperFunction) {
-		// 			int wrapperInd = wrapperIndex == -1 ? interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].wrapperFunction.wrapperIndex : wrapperIndex;
-		// 			if (wrapperInd > -1) {
-		// 				if (interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].wrapperFunction.functions[wrapperInd].enumNameCore == EActionListCore::delayFunction) {
-		// 					UInteractComponent::DelayFunction(actor, interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].wrapperFunction.functions[wrapperInd].delayFunction, interactComponent);
-		// 				}
-		// 			}
-		// 		}
 	}
 	else if (actionStageType == EActionStageType::Exit) {
 		if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].enumNameCore == EActionListCore::delayFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].delayFunction), interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].delayFunction.customVariableSet, FDelayFunction::StaticStruct(), interactComponent);
 			UInteractComponent::DelayFunction(actor, interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].delayFunction, interactComponent);
 		}
-		// 		else if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].enumName == EActionList::wrapperFunction) {
-		// 			int wrapperIndex = interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].wrapperFunction.wrapperIndex;
-		// 			if (wrapperIndex > -1) {
-		// 				if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].wrapperFunction.functions[wrapperIndex].enumNameCore == EActionListCore::delayFunction) {
-		// 					ISM_PRINTLOG("EXIT - WRAPPER")
-		// 				}
-		// 			}
-		// 		}
 	}
 	else {
 		return;
@@ -860,7 +821,6 @@ void UInteractMacrosClass::WhenFunction(UInteractComponent* interactComponent, A
 	int functionIn = functionInd == -1 ? interactComponent->functionIndex : functionInd;
 	int currentSta = currentStag == -1 ? interactComponent->m_currentStage : currentStag;
 	if (actionStageType == EActionStageType::Pre) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].preStageFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].enumNameCore == EActionListCore::whenFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].whenFunction), interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].whenFunction.customVariableSet, FWhenFunction::StaticStruct(), interactComponent);
 			UInteractComponent::WhenFunction(actor, interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].whenFunction, interactComponent);
@@ -879,10 +839,8 @@ void UInteractMacrosClass::WhenFunction(UInteractComponent* interactComponent, A
 				}
 			}
 		}
-		//}
 	}
 	else if (actionStageType == EActionStageType::Init) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].enumNameCore == EActionListCore::whenFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].whenFunction), interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].whenFunction.customVariableSet, FWhenFunction::StaticStruct(), interactComponent);
 			UInteractComponent::WhenFunction(actor, interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].whenFunction, interactComponent);
@@ -901,10 +859,8 @@ void UInteractMacrosClass::WhenFunction(UInteractComponent* interactComponent, A
 				}
 			}
 		}
-		//}
 	}
 	else if (actionStageType == EActionStageType::Interact) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].actions[index].stageFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].enumNameCore == EActionListCore::whenFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].whenFunction), interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].whenFunction.customVariableSet, FWhenFunction::StaticStruct(), interactComponent);
 			UInteractComponent::WhenFunction(actor, interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].whenFunction, interactComponent);
@@ -923,10 +879,8 @@ void UInteractMacrosClass::WhenFunction(UInteractComponent* interactComponent, A
 				}
 			}
 		}
-		//}
 	}
 	else if (actionStageType == EActionStageType::Exit) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].enumNameCore == EActionListCore::whenFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].whenFunction), interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].whenFunction.customVariableSet, FWhenFunction::StaticStruct(), interactComponent);
 			UInteractComponent::WhenFunction(actor, interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].whenFunction, interactComponent);
@@ -945,7 +899,6 @@ void UInteractMacrosClass::WhenFunction(UInteractComponent* interactComponent, A
 				}
 			}
 		}
-		//}
 	}
 	else {
 		return;
@@ -956,57 +909,43 @@ void UInteractMacrosClass::IfFunction(UInteractComponent* interactComponent, AAc
 	int functionIn = functionInd == -1 ? interactComponent->functionIndex : functionInd;
 	int currentSta = currentStag == -1 ? interactComponent->m_currentStage : currentStag;
 	if (actionStageType == EActionStageType::Pre) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].preStageFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].enumNameCore == EActionListCore::ifFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].ifFunction), interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].ifFunction.customVariableSet, FIfFunction::StaticStruct(), interactComponent);
 			UInteractComponent::IfFunction(actor, interactComponent->interactDataArray[currentSta].preStageFunction[functionIn].ifFunction, interactComponent);
 		}
-		//}
 	}
 	else if (actionStageType == EActionStageType::Init) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].enumNameCore == EActionListCore::ifFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].ifFunction), interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].ifFunction.customVariableSet, FIfFunction::StaticStruct(), interactComponent);
 			UInteractComponent::IfFunction(actor, interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.initFunction[functionIn].ifFunction, interactComponent);
 		}
-		//}
 	}
 	else if (actionStageType == EActionStageType::Interact) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].actions[index].stageFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].enumNameCore == EActionListCore::ifFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].ifFunction), interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].ifFunction.customVariableSet, FIfFunction::StaticStruct(), interactComponent);
 			UInteractComponent::IfFunction(actor, interactComponent->interactDataArray[currentSta].actions[index].stageFunction[functionIn].ifFunction, interactComponent);
 		}
-		//}
 	}
 	else if (actionStageType == EActionStageType::Exit) {
-		//for (int i = 0; i < interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction.Num(); i++) {
 		if (interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].enumNameCore == EActionListCore::ifFunction) {
 			UInteractComponent::UpdateVariables(reinterpret_cast<void*>(&interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].ifFunction), interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].ifFunction.customVariableSet, FIfFunction::StaticStruct(), interactComponent);
 			UInteractComponent::IfFunction(actor, interactComponent->interactDataArray[currentSta].capsuleTriggerStruct.exitFunction[functionIn].ifFunction, interactComponent);
 		}
-		//}
 	}
 	else {
 		return;
 	}
 }
 
-// Called when the game starts
 void UInteractMacrosClass::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
 	
 }
 
 
-// Called every frame
 void UInteractMacrosClass::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
 }
 

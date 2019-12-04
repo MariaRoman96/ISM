@@ -21,15 +21,8 @@ void UTooltip::NativeConstruct()
 	InitAnim();
 }
 
-// void UTooltip::MarkPendingKill() {
-// 	if (!IsRooted()) {
-// 		Super::MarkPendingKill();
-// 	}
-// }
 
 void UTooltip::BeginDestroy() {
-	//ISM_PRINTLOG("Destruye tooltip: "+GetName())
-	//SetDesignerFlags(EWidgetDesignFlags::Designing);
 	Super::BeginDestroy();
 }
 
@@ -75,7 +68,6 @@ void UTooltip::Animate(float speedAnim)
 		stoppedAnimations = false;
 
 		isTooltipVisible = true;
-		//Cast<UCanvasPanel>(GetWidgetTreeOwningClass()->WidgetTree->RootWidget)->GetSlots()[0]
 		if (speedAnim != 0) {
 			float time = 1.f / speedAnim;
 			PlayAnimation(*WidgetAnimation.Find(L"Animation_INST"), 0.0f, 1, EUMGSequencePlayMode::Forward, time);
@@ -98,10 +90,6 @@ void UTooltip::StopAnimate(float speedAnim)
 			float time = 1.f / speedAnim;
 			if (quickEventTime == 0.f || delayQuickEventTime == 0.f) {
 				PlayAnimation(*WidgetAnimation.Find(L"Animation_INST"), 0.0f, 1, EUMGSequencePlayMode::Reverse, time);
-			}else{
-				//StopFunctions();
-				//IsAvailableQTE();
-				//PlayAnimation(*WidgetAnimation.Find(L"HideAll_INST"), 0.0f, 1, EUMGSequencePlayMode::Forward);
 			}
 		}
 		else {
@@ -113,9 +101,6 @@ void UTooltip::StopAnimate(float speedAnim)
 void UTooltip::OnAnimationFinished_Implementation(const UWidgetAnimation* Animation)
 {
 	if (quickEventTime != 0.f && delayQuickEventTime != 0.f) {
-// 		if (Animation->GetName() == (*WidgetAnimation.Find(L"Animation_INST"))->GetName()) {
-// 			OnAnimComplete();
-// 		}
 		if (Animation->GetName() == (*WidgetAnimation.Find(L"QTEOutside_INST"))->GetName()) {
 			OnQTEDelayComplete();
 		}
@@ -138,11 +123,6 @@ void UTooltip::OnAnimComplete()
 		else {
 			OnQTEDelayComplete();
 		}
-// 		FTimerDelegate delayDel;
-// 		FTimerHandle delayHand;
-// 		delayDel.BindUFunction(this, FName("OnQTEDelayComplete"));
-// 		GetWorld()->GetTimerManager().SetTimer(delayHand, delayDel, delayQuickEventTime, false);
-//		ActiveSequencePlayers.Last()->OnSequenceFinishedPlaying().AddUObject(this, &UTooltip::OnQTEDelayComplete);
 	}
 }
 
@@ -160,11 +140,6 @@ void UTooltip::OnQTEDelayComplete()
 		else {
 			OnQTEComplete();
 		}
-// 		FTimerDelegate delayDel;
-// 		FTimerHandle delayHand;
-// 		delayDel.BindUFunction(this, FName("OnQTEComplete"));
-// 		GetWorld()->GetTimerManager().SetTimer(delayHand, delayDel, quickEventTime, false);
-//		ActiveSequencePlayers.Last()->OnSequenceFinishedPlaying().AddUObject(this, &UTooltip::OnQTEComplete);
 	}
 }
 
@@ -223,7 +198,6 @@ void UTooltip::StopFunctions(bool stopAnims, float speed, bool tooltipVisibleLog
 	if (WidgetAnimation.Num() <= 0) {
 		InitAnim();
 	}
-	//GetWorld()->GetTimerManager().ClearAllTimersForObject(this);
 	StopAnimationsAndLatentActions();
 	if (stopAnims) {
 		stoppedAnimations = true;
@@ -231,7 +205,6 @@ void UTooltip::StopFunctions(bool stopAnims, float speed, bool tooltipVisibleLog
 	if (tooltipVisibleLogic) {
 		isTooltipVisible = false;
 	}
-	//StopAllAnimations();
 	float time = 1.f;
 	if (speed != 0.f) {
 		time = 1.f / speed;

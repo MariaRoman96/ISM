@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 
 #include "ICE_TriggerCapsule.h"
 
@@ -16,16 +14,6 @@ void UICE_TriggerCapsule::GetData()
 		exitFunc->basicFunctions[j]->GetData();
 	}
 
-// 	if (actorClasses.Num() == 0) {
-// 		for (TObjectIterator<UClass> It; It; ++It)
-// 		{
-// 			if (It->IsChildOf(ACh::StaticClass()) || It->IsChildOf(AItem::StaticClass()) || It->IsChildOf(AActor::StaticClass())
-// 				|| It->IsChildOf(APawn::StaticClass()) || It->IsChildOf(ACharacter::StaticClass()))
-// 			{
-// 				actorClasses.Add(*It);
-// 			}
-// 		}
-// 	}
 
 	FString nam = "Actor Class";
 	GetActorClass()->GetICEName()->SetText(FText::FromString(nam));

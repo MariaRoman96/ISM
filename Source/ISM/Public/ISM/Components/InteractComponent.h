@@ -23,17 +23,11 @@
 #include "InteractWidgetComponent.h"
 #include "InteractComponent.generated.h"
 
-//#define STRUCTLISTNAME(EnumName, StructClass) \
-//	UPROPERTY(EditAnywhere, Category = EnumName) \
-//	StructClass EnumName;
 
 using namespace std;
 
 DECLARE_LOG_CATEGORY_EXTERN(InteractLog, All, All)
 
-// #define BIND_DELEGATEFINAL \
-// BIND_DELEGATESCORE \
-// BIND_DELEGATES
 
 USTRUCT(BlueprintType)
 struct FTooltipData {
@@ -175,8 +169,6 @@ struct FCapsuleHighlight : public FCapsuleRequired
 public:
 	FCapsuleHighlight() {}
 
-// 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "ShiningIntroSpeed"))
-// 		float m_shiningIntroSpeed = 1.f;
 };
 
 USTRUCT(BlueprintType)
@@ -320,7 +312,6 @@ class ISM_API UInteractComponent : public UInteractFunctionsClass
 {
 	GENERATED_BODY()
 public:
-	// Sets default values for this component's properties
 	UInteractComponent();
 
 	UPROPERTY()
@@ -329,7 +320,6 @@ public:
 	UPROPERTY()
 		UTexture2D* circleTexture;
 
-	//_____Variables de Luis________
 	//Variables Object Inspector
 	FVector initPosGlobal = { 0,0,0 };
 	FRotator initRotGlobal = { 0,0,0 };
@@ -526,19 +516,19 @@ public:
 
 
 	UFUNCTION()
-		void ObjectInspectorTimer(AActor *actor, FObjectInspector& data);//Corregido fps
+		void ObjectInspectorTimer(AActor *actor, FObjectInspector& data);
 	UFUNCTION()
-		void PlayAnimCharacterTimer(ACharacter* actor, FPlayAnimCharacter& data); //Preguntar a Maria
+		void PlayAnimCharacterTimer(ACharacter* actor, FPlayAnimCharacter& data); 
 	UFUNCTION()
-		void MoveToFunctionTimer(AActor* actor, FMoveToFunction& data); //Preguntar a Maria
+		void MoveToFunctionTimer(AActor* actor, FMoveToFunction& data); 
 	UFUNCTION()
-		void RotateToFunctionTimer(AActor* actor, FRotateToFunction& data); //Corregido fps
+		void RotateToFunctionTimer(AActor* actor, FRotateToFunction& data); 
 	UFUNCTION()
-		void DecrementIncrementTimer(AActor* actor, FDecrementIncrement& data); //Preguntar a Maria
+		void DecrementIncrementTimer(AActor* actor, FDecrementIncrement& data); 
 	UFUNCTION()
-		void PlaySoundTimer(AActor *actor, FPlaySoundFunction& data); //Preguntar a Maria
+		void PlaySoundTimer(AActor *actor, FPlaySoundFunction& data); 
 	UFUNCTION()
-		void RelocateFunctionTimer(AActor *actor, FRelocateFunction& data);//Corregido fps
+		void RelocateFunctionTimer(AActor *actor, FRelocateFunction& data);
 	UFUNCTION()
 		void CurveLineTraceTimer(AActor *actor, FCurveLineTrace& data); //Deprecated
 

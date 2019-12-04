@@ -228,30 +228,6 @@ enum class ESpecificRotAxis : uint8
 	Roll	 				UMETA(DisplayName = "Roll"),
 };
 
-// USTRUCT(BlueprintType)
-// struct FActorSelect {
-// 	GENERATED_USTRUCT_BODY()
-// public:
-// 	FActorSelect() {};
-// 	FActorSelect(bool m_doOnOwner, bool m_customActor, UClass* m_currentActor, FName m_currentTag)
-// 	{
-// 		doOnOwner = m_doOnOwner;
-// 		customActor = m_customActor;
-// 		currentActor = m_currentActor;
-// 		currentTag = m_currentTag;
-// 	};
-// 
-// 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "doOnOwner"))
-// 		bool doOnOwner = true;
-// 
-// 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "customActor"))
-// 		bool customActor = false;
-// 
-// 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditCondition = "currentActor"))
-// 		UClass* currentActor;
-// 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (EditCondition = "currentTag"))
-// 		FName currentTag;
-// };
 
 //ADD NEW STRUCT IN FUNCTIONDATA FOR EACH FUNCTION
 USTRUCT(BlueprintType)
@@ -371,19 +347,10 @@ public:
 
 	static void AddComponentToBlueprint(UBlueprint* Blueprint, USceneComponent* Component);
 
-	/*	static void ModifyComponentBlueprint(UBlueprint* Blueprint, USceneComponent* Component, FName componentName);*/
-
 	static void CompileBlueprint(UBlueprint* Blueprint);
 
 	static AActor* SpawnActorFromBlueprint(UBlueprint* Blueprint, AActor* actor, FVector location, FRotator rotation, UWorld* world);
 
-	//static void EnsureBlueprintIsUpToDate(UBlueprint* BlueprintObj);
-
-	//static TArray<UObject*> DynamicLoadContentFromPath(FString PathFromContentFolder = "Assets/Textures/Icons", UClass* AssetClass = nullptr, bool LoadFromSubfolders = false);
-
-	//static float GetValueFromString(FString value, float max = NaN);
-	//static UTexture2D* GetActionButtonImage(EAction actionButton);
-	//static void checkCurrentPlatform();
 	static float GetValue(FString value, float max = NaN);
 
 	static void ISM_Destroy(UObject* ToDestroy);

@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "ICE_BasicFunction.h"
 #include "ICE_Float.h"
 #include "ICE_Integer.h"

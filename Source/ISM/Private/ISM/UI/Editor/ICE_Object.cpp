@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "ICE_Object.h"
@@ -39,7 +38,3 @@ UObject* UICE_Object::GetValue()
 	}
 }
 
-// void UICE_Object::OnChangeSelect(FString SelectedItem, ESelectInfo::Type SelectionType)
-// {
-// 
-// }

@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "InteractFunctionsClass.h"
 #include "InteractComponent.h"
 using namespace std;
@@ -89,10 +86,8 @@ CREATE_FUNCTION(CurveLineTrace, UInteractComponent, FCurveLineTrace, curveLineTr
 
 CREATE_FUNCTIONCHECK(PlaceholderCheck, UInteractComponent, FPlaceholderCheck, placeholderCheck)
 
-// Sets default values
 UInteractFunctionsClass::UInteractFunctionsClass()
 {
-	// Set interactComponent actor to call Tick() every frame.  You can turn interactComponent off to improve performance if you don't need it.
 	PrimaryComponentTick.bCanEverTick = false;
 
 
@@ -154,14 +149,12 @@ UInteractFunctionsClass::UInteractFunctionsClass()
 	}
 }
 
-// Called when the game starts or when spawned
 void UInteractFunctionsClass::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
-// Called every frame
 void UInteractFunctionsClass::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);

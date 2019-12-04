@@ -56,8 +56,6 @@ public:
 		UInteractComponent* interactComponent;
 	UPROPERTY()
 		TArray<UICE_Stage*> stages;
-// 	UPROPERTY()
-// 		TArray<UObject*> textures2D;
 
 	UPROPERTY()
 		UInteractComponent* interactComponentBP;
@@ -65,8 +63,6 @@ public:
 	UPROPERTY()
 		AActor* actorInteractBP;
 
-// 	UPROPERTY()
-// 		UObject* outAct;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float m_ticksTime = 1.f;
 	FTimerHandle wrapperHandle;
@@ -85,11 +81,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void ExportReLoad();
 
-// 	UFUNCTION()
-// 		void CalculateTicks(float time);
-// 
-// 	UFUNCTION()
-// 		FString ExportInfo();
 
 	// Weak pointer to the level editor's compile notification item.
 	TWeakPtr<SNotificationItem> CompileNotificationPtr;
@@ -105,8 +96,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void OnLoadStart();
 
-// 	UFUNCTION()
-// 		void OnLoadCancel();
 
 	UFUNCTION(BlueprintCallable)
 		void OnLoadEnd();
@@ -114,8 +103,6 @@ public:
 
 	virtual void NativeConstruct() override;
 
-// 	UFUNCTION()
-// 		void onClick();
 	UFUNCTION(BlueprintCallable)
 		void CheckIfAreChanges(TArray<AActor*> selectedActorsArray);
 	UFUNCTION(BlueprintCallable)

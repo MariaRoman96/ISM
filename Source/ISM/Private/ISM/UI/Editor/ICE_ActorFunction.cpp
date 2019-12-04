@@ -1,19 +1,9 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "ICE_ActorFunction.h"
 #include "ICE_BasicFunction.h"
 #include "ICE_ArrayElement.h"
 
 void UICE_ActorFunction::NativeConstruct()
 {
-// 	if (GetICEEnum()->GetOptionCount() == 0) {
-// 		int maxE = (int)GETENUMMAX(TEXT("EGetActorList"));
-// 		for (int i = 0; i < maxE; i++) {
-// 			GetICEEnum()->AddOption(GETENUMSTRING(TEXT("EGetActorList"), (EGetActorList)i));
-// 		}
-// 		GetICEEnum()->SetSelectedOption(GETENUMSTRING(TEXT("EGetActorList"), (EGetActorList)0));
-// 	}
 	GetICEEnum()->OnSelectionChanged.AddDynamic(this, &UICE_ActorFunction::OnChangeSelect);
 }
 

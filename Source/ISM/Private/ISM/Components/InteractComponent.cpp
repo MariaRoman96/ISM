@@ -162,33 +162,6 @@ UInteractComponent::UInteractComponent()
 bool UInteractComponent::CheckActorLocation(AActor* actor, FCheckActorLocation& data, UInteractComponent* interactComponent)
 {
 	AActor* intActor = UInteractComponent::GetCurrentActor(interactComponent, data.actor, actor, interactComponent->tempAction, interactComponent->tempTooltipIndex, interactComponent->tempType, interactComponent->tempInElse);
-// 	if (data.currentActor.customActor) {
-// 		if (data.currentActor.currentTag.ToString() != "" && data.currentActor.currentTag != NAME_None) {
-// 			TArray<AActor*> actors;
-// 			UGameplayStatics::GetAllActorsWithTag(interactComponent->GetWorld(), data.currentActor.currentTag, actors);
-// 			for (int i = 0; i < actors.Num(); i++) {
-// 				if ((actors[i]->GetClass() == data.currentActor.currentActor) || !data.currentActor.currentActor) {
-// 					intActor = actors[i];
-// 					break;
-// 				}
-// 			}
-// 		}
-// 		else {
-// 			TArray<AActor*> actors;
-// 			UGameplayStatics::GetAllActorsOfClass(interactComponent->GetWorld(), data.currentActor.currentActor, actors);
-// 			if (actors.Num() > 0) {
-// 				intActor = actors[0];
-// 			}
-// 		}
-// 	}
-// 	else {
-// 		if (data.currentActor.doOnOwner) {
-// 			intActor = interactComponent->GetOwner();
-// 		}
-// 		else if (actor) {
-// 			intActor = actor;
-// 		}
-// 	}
 	USceneComponent* compRot = nullptr;
 	if (IsValid(data.specificChild)) {
 		TSet<UActorComponent*> comps;
@@ -198,13 +171,11 @@ bool UInteractComponent::CheckActorLocation(AActor* actor, FCheckActorLocation& 
 			if (data.componentTag.ToString() != "" && data.componentTag != NAME_None) {
 				if (scene && scene->GetClass() == data.specificChild && scene->ComponentHasTag(data.componentTag)) {
 					compRot = scene;
-					//scene->AddLocalRotation(data.rotation);
 				}
 			}
 			else {
 				if (scene && scene->GetClass() == data.specificChild) {
 					compRot = scene;
-					//scene->AddLocalRotation(data.rotation);
 				}
 			}
 		}
@@ -216,7 +187,6 @@ bool UInteractComponent::CheckActorLocation(AActor* actor, FCheckActorLocation& 
 			USceneComponent* scene = Cast<USceneComponent>(comps.Array()[i]);
 			if (scene && scene->ComponentHasTag(data.componentTag)) {
 				compRot = scene;
-				//scene->AddLocalRotation(data.rotation);
 			}
 		}
 	}
@@ -238,13 +208,11 @@ bool UInteractComponent::CheckActorLocation(AActor* actor, FCheckActorLocation& 
 						if (data.targetComponentTag.ToString() != "" && data.targetComponentTag != NAME_None) {
 							if (scene && scene->GetClass() == data.targetComponentClass && scene->ComponentHasTag(data.targetComponentTag)) {
 								otherCompRot = scene;
-								//scene->AddLocalRotation(data.rotation);
 							}
 						}
 						else {
 							if (scene && scene->GetClass() == data.targetComponentClass) {
 								otherCompRot = scene;
-								//scene->AddLocalRotation(data.rotation);
 							}
 						}
 					}
@@ -256,7 +224,6 @@ bool UInteractComponent::CheckActorLocation(AActor* actor, FCheckActorLocation& 
 						USceneComponent* scene = Cast<USceneComponent>(comps.Array()[i]);
 						if (scene && scene->ComponentHasTag(data.targetComponentTag)) {
 							otherCompRot = scene;
-							//scene->AddLocalRotation(data.rotation);
 						}
 					}
 				}
@@ -421,33 +388,6 @@ bool UInteractComponent::CheckActorLocation(AActor* actor, FCheckActorLocation& 
 bool UInteractComponent::CheckActorRotation(AActor* actor, FCheckActorRotation& data, UInteractComponent* interactComponent)
 {
 	AActor* intActor = UInteractComponent::GetCurrentActor(interactComponent, data.actor, actor, interactComponent->tempAction, interactComponent->tempTooltipIndex, interactComponent->tempType, interactComponent->tempInElse);
-// 	if (data.currentActor.customActor) {
-// 		if (data.currentActor.currentTag.ToString() != "" && data.currentActor.currentTag != NAME_None) {
-// 			TArray<AActor*> actors;
-// 			UGameplayStatics::GetAllActorsWithTag(interactComponent->GetWorld(), data.currentActor.currentTag, actors);
-// 			for (int i = 0; i < actors.Num(); i++) {
-// 				if ((actors[i]->GetClass() == data.currentActor.currentActor) || !data.currentActor.currentActor) {
-// 					intActor = actors[i];
-// 					break;
-// 				}
-// 			}
-// 		}
-// 		else {
-// 			TArray<AActor*> actors;
-// 			UGameplayStatics::GetAllActorsOfClass(interactComponent->GetWorld(), data.currentActor.currentActor, actors);
-// 			if (actors.Num() > 0) {
-// 				intActor = actors[0];
-// 			}
-// 		}
-// 	}
-// 	else {
-// 		if (data.currentActor.doOnOwner) {
-// 			intActor = interactComponent->GetOwner();
-// 		}
-// 		else if (actor) {
-// 			intActor = actor;
-// 		}
-// 	}
 
 	USceneComponent* compRot = nullptr;
 	if (IsValid(data.specificChild)) {
@@ -458,13 +398,11 @@ bool UInteractComponent::CheckActorRotation(AActor* actor, FCheckActorRotation& 
 			if (data.componentTag.ToString() != "" && data.componentTag != NAME_None) {
 				if (scene && scene->GetClass() == data.specificChild && scene->ComponentHasTag(data.componentTag)) {
 					compRot = scene;
-					//scene->AddLocalRotation(data.rotation);
 				}
 			}
 			else {
 				if (scene && scene->GetClass() == data.specificChild) {
 					compRot = scene;
-					//scene->AddLocalRotation(data.rotation);
 				}
 			}
 		}
@@ -476,7 +414,6 @@ bool UInteractComponent::CheckActorRotation(AActor* actor, FCheckActorRotation& 
 			USceneComponent* scene = Cast<USceneComponent>(comps.Array()[i]);
 			if (scene && scene->ComponentHasTag(data.componentTag)) {
 				compRot = scene;
-				//scene->AddLocalRotation(data.rotation);
 			}
 		}
 	}
@@ -498,13 +435,11 @@ bool UInteractComponent::CheckActorRotation(AActor* actor, FCheckActorRotation& 
 						if (data.targetComponentTag.ToString() != "" && data.targetComponentTag != NAME_None) {
 							if (scene && scene->GetClass() == data.targetComponentClass && scene->ComponentHasTag(data.targetComponentTag)) {
 								otherCompRot = scene;
-								//scene->AddLocalRotation(data.rotation);
 							}
 						}
 						else {
 							if (scene && scene->GetClass() == data.targetComponentClass) {
 								otherCompRot = scene;
-								//scene->AddLocalRotation(data.rotation);
 							}
 						}
 					}
@@ -516,7 +451,6 @@ bool UInteractComponent::CheckActorRotation(AActor* actor, FCheckActorRotation& 
 						USceneComponent* scene = Cast<USceneComponent>(comps.Array()[i]);
 						if (scene && scene->ComponentHasTag(data.targetComponentTag)) {
 							otherCompRot = scene;
-							//scene->AddLocalRotation(data.rotation);
 						}
 					}
 				}
@@ -5614,33 +5548,6 @@ void UInteractComponent::TeleportTo(AActor* actor, FTeleportTo& data, UInteractC
 {
 	AActor* act = UInteractComponent::GetCurrentActor(interactComponent, data.actor2, actor, interactComponent->tempAction, interactComponent->tempTooltipIndex, interactComponent->tempType, interactComponent->tempInElse);
 	TArray<AActor*> actors;
-// 	if (data.currentActor.customActor) {
-// 		if (data.currentActor.currentTag.ToString() != "" && data.currentActor.currentTag != NAME_None) {
-// 			//TArray<AActor*> actors;
-// 			UGameplayStatics::GetAllActorsWithTag(interactComponent->GetWorld(), data.currentActor.currentTag, actors);
-// 			for (int i = 0; i < actors.Num(); i++) {
-// 				if ((actors[i]->GetClass() == data.currentActor.currentActor) || !data.currentActor.currentActor) {
-// 					act = actors[i];
-// 					break;
-// 				}
-// 			}
-// 		}
-// 		else {
-// 			//TArray<AActor*> actors;
-// 			UGameplayStatics::GetAllActorsOfClass(interactComponent->GetWorld(), data.currentActor.currentActor, actors);
-// 			if (actors.Num() > 0) {
-// 				act = actors[0];
-// 			}
-// 		}
-// 	}
-// 	else {
-// 		if (data.currentActor.doOnOwner) {
-// 			act = interactComponent->GetOwner();
-// 		}
-// 		else if (actor) {
-// 			act = actor;
-// 		}
-// 	}
 	if (act != nullptr) {
 		if (data.actor.enumName != EGetActorList::None) {
 			int val = (int)data.actor.enumName - 1;
@@ -5862,14 +5769,6 @@ void UInteractComponent::MoveToFunctionTimer(AActor* actor, FMoveToFunction& dat
 			else {
 				usLocation = compRot->GetComponentLocation();
 			}
-// 			else if (actor) {
-// 				if (compRot == nullptr) {
-// 					usLocation = actor->GetActorLocation();
-// 				}
-// 				else {
-// 					usLocation = compRot->GetComponentLocation();
-// 				}
-// 			}
 
 			if (data.movableTarget) {
 				if (data.actor.enumName != EGetActorList::None) {
@@ -6299,9 +6198,7 @@ void UInteractComponent::SpawnerFunction(AActor *actor, FSpawnerFunction& data, 
 			UInteractComponent* intCompThis = Cast<UInteractComponent>(data.spawned->GetComponentByClass(UInteractComponent::StaticClass()));
 			if (intCompThis) {
 				intCompThis->interactDataArray = dataSpawn;
-//  				intCompThis->ImportInteractDataInternal();
 	  			intCompThis->InitializeTooltip();
-//  				intCompThis->StartInteract();
 				IPlayerInterface* player = Cast<IPlayerInterface>(UGameplayStatics::GetPlayerCharacter(intCompThis->GetWorld(), 0));
 				if (player) {
 					player->ExecuteNearTriggers();
@@ -6385,9 +6282,7 @@ void UInteractComponent::RelocateFunctionTimer(AActor *actor, FRelocateFunction&
 			if (val >= 0) {
 				m_actor = actorFunctionMap[val].Execute(this, actor, data.savedState.tempAction, data.savedState.tempTooltipIndex, data.savedState.tempStage, -1, data.savedState.tempFunctionIndex, data.savedState.tempCurrentStage, FExtraActorData(data.savedState.tempInElse, 0));
 			}
-			//IInteractInterface* intInt = Cast<IInteractInterface>(m_actor);
 			TArray<UActorComponent*> arrows;
-			//if (intInt) {
 				if (m_actor) {
 					arrows = m_actor->GetComponentsByTag(UArrowComponent::StaticClass(), data.arrowTag);
 				}

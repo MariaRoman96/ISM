@@ -26,8 +26,6 @@ public:
 
 	UPROPERTY()
 		int stage = 0;
-// 	UPROPERTY()
-// 		UInteractComponent* interactComponent;
 	UPROPERTY()
 		UICE_Wrapper* wrapper;
 	UPROPERTY()

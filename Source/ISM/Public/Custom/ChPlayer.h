@@ -60,14 +60,10 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
-// 	UFUNCTION()
-// 		void ExecuteNearTriggers();
 	UFUNCTION()
 		void InteractAction(FActionButton actionButton);
 protected:
 
-	//virtual void Interact(AActor* actor, FActionButton actionButton);
-	/*virtual void DestroyActor() override;*/
 	virtual void BeginPlay() override;
 
 private:
