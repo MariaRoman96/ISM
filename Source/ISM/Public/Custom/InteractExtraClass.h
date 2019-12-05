@@ -26,7 +26,7 @@
 // ENUMS CORE //////////////////
 ////////////////////////////////
 
-//TO ADD NEW SELECTABLE FUNCTION: ENUM, DISPLAY NAME AND STRUCT NAME MUST BE THE SAME
+//If you want to add new selectable function, when you add a new element here the enum and the DisplayName need to be the same
 UENUM(BlueprintType)
 enum class EActionList : uint8
 {
@@ -35,7 +35,7 @@ enum class EActionList : uint8
 	curveLineTrace					UMETA(DisplayName = "curveLineTrace", customCategory = "Common"),
 };
 
-//TO ADD NEW SELECTABLE FUNCTION: ENUM, DISPLAY NAME AND STRUCT NAME MUST BE THE SAME
+//Same as above but this enum is for define check functions
 UENUM(BlueprintType)
 enum class ECheckList : uint8
 {
@@ -44,12 +44,14 @@ enum class ECheckList : uint8
 
 };
 
+//You can define delegate functions (more information at "whenFunction" in the wiki)
 UENUM(BlueprintType)
 enum class EDelegateList : uint8
 {
 	None 						UMETA(DisplayName = "None", customCategory = "Core"),
 };
 
+//You can define timers, timers are functions that will be called periodically until it finished or be canceled (using "cancelTimer")
 UENUM(BlueprintType)
 enum class ETimerList : uint8
 {

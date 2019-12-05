@@ -3,7 +3,7 @@
 using namespace std;
 using namespace std::placeholders;
 
-//If Function have one actor (also if have more)
+//If function has ONE actor ("getActorsFunctions" in the wiki) you need to add it here (also if it has more)
 FFunctionActorData UInteractFunctionsClass::GetFunctionActorData(FFunctionData functionData) {
 	if (functionData.enumName == EActionList::objectInspector) {
 		return functionData.objectInspector.actor;
@@ -16,6 +16,7 @@ FFunctionActorData UInteractFunctionsClass::GetFunctionActorData(FFunctionData f
 	}
 }
 
+//If function has ONE actor ("getActorsFunctions" in the wiki) you need to add it here (also if it has more)
 FFunctionActorData UInteractFunctionsClass::GetFunctionActorDataWrapper(FFunctionDataWrapper functionData) {
 	if (functionData.enumName == EActionList::objectInspector) {
 		return functionData.objectInspector.actor;
@@ -28,6 +29,7 @@ FFunctionActorData UInteractFunctionsClass::GetFunctionActorDataWrapper(FFunctio
 	}
 }
 
+//If function has ONE actor ("getActorsFunctions" in the wiki) you need to add it here (also if it has more)
 FFunctionActorData UInteractFunctionsClass::GetFunctionActorDataBase(FFunctionDataBase functionData) {
 	if (functionData.enumName == EActionList::objectInspector) {
 		return functionData.objectInspector.actor;
@@ -40,6 +42,7 @@ FFunctionActorData UInteractFunctionsClass::GetFunctionActorDataBase(FFunctionDa
 	}
 }
 
+//If checkfunction has ONE actor ("getActorsFunctions" in the wiki) you need to add it here (also if it has more)
 FFunctionActorData UInteractFunctionsClass::GetFunctionActorDataCheck(FFunctionCheckDataBase functionData) {
 	
 	return {};
@@ -47,27 +50,31 @@ FFunctionActorData UInteractFunctionsClass::GetFunctionActorDataCheck(FFunctionC
 }
 
 
-//If Function have other actor
+//If function has OTHER actor ("getActorsFunctions" in the wiki) you need to add it here
 FFunctionActorData UInteractFunctionsClass::GetFunctionCurrentActorData(FFunctionData functionData)
 {
 	return {};
 }
 
+//If function has OTHER actor ("getActorsFunctions" in the wiki) you need to add it here
 FFunctionActorData UInteractFunctionsClass::GetFunctionCurrentActorDataWrapper(FFunctionDataWrapper functionData)
 {
 	return {};
 }
 
+//If function has OTHER actor ("getActorsFunctions" in the wiki) you need to add it here
 FFunctionActorData UInteractFunctionsClass::GetFunctionCurrentActorDataBase(FFunctionDataBase functionData)
 {
 	return {};
 }
 
+//If checkfunction has OTHER actor ("getActorsFunctions" in the wiki) you need to add it here
 FFunctionActorData UInteractFunctionsClass::GetFunctionCurrentActorDataCheck(FFunctionCheckDataBase functionData)
 {
 	return {};
 }
 
+//Add the function enum and function here (so it can be called when it will be used in "whenFunction" using delegates)
 void UInteractFunctionsClass::CallDelegateFunction(EActionList tempEnumNameCore, AActor* actor, FFunctionDataBase function, UInteractComponent* interactComponent)
 {
 	if (EActionList::objectInspector == tempEnumNameCore) {
@@ -80,10 +87,11 @@ void UInteractFunctionsClass::CallDelegateFunction(EActionList tempEnumNameCore,
 	}
 }
 
-//ADD CREATE FUNCTION WITH FUNCTION NAME, CLASS WHERE THE FUNCTION IS, STRUCT NAME
+//ADD CREATE_FUNCTION WITH FUNCTION NAME, CLASS WHERE THE FUNCTION IS, STRUCT NAME AND ENUM NAME
 CREATE_FUNCTION(ObjectInspector, UInteractComponent, FObjectInspector, objectInspector)
 CREATE_FUNCTION(CurveLineTrace, UInteractComponent, FCurveLineTrace, curveLineTrace)
 
+//SAME FOR CHECKFUNCTIONS
 CREATE_FUNCTIONCHECK(PlaceholderCheck, UInteractComponent, FPlaceholderCheck, placeholderCheck)
 
 UInteractFunctionsClass::UInteractFunctionsClass()
@@ -100,6 +108,7 @@ UInteractFunctionsClass::UInteractFunctionsClass()
 	BINDENUMSFINAL
 
 
+	//ADD HERE ANOTHER .ADD IF THE FUNCTION HAS AN "ACTORFUNCTION"
 	getActorFunctions.Add(EActionList::objectInspector);
 	getActorFunctions.Add(EActionList::curveLineTrace);
 

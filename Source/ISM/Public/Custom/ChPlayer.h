@@ -60,6 +60,7 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+	//Entry point for all interact that player can do with near entities
 	UFUNCTION()
 		void InteractAction(FActionButton actionButton);
 protected:

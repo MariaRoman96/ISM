@@ -28,7 +28,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		USkeletalMeshComponent* mMesh;
 
+	//When the game is closed in editor is necessary to reset the delegates values
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason);
+	//When you move an entity in editor mode, it is necessary to update all interact attributes (capsule, position...)
 	virtual void PostEditMove(bool bFinished);
 
 protected:

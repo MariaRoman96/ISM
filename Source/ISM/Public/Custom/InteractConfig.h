@@ -16,6 +16,7 @@
 class ACh;
 class AItem;
 
+//You can define all default buttons in the game here
 UENUM(BlueprintType)
 enum class EAction : uint8
 {
@@ -84,6 +85,7 @@ enum class EAction : uint8
 	F12				UMETA(DisplayName = "F12"),
 };
 
+//There are the platforms that will be available the game
 UENUM(BlueprintType)
 enum class EPlatform : uint8
 {
@@ -97,6 +99,8 @@ enum class EPlatform : uint8
 	Android					UMETA(DisplayName = "Android")
 };
 
+
+//(Don't modify) The states of the buttons
 UENUM(BlueprintType)
 enum class EActionType : uint8
 {
@@ -110,6 +114,7 @@ struct FDataGetter
 	GENERATED_USTRUCT_BODY()
 public:
 
+	//It will be getting all new assets in the editor
 	FDataGetter() {
 #if WITH_EDITOR
 		FAssetRegistryModule& AssetRegistryModule = FModuleManager::LoadModuleChecked<FAssetRegistryModule>("AssetRegistry");
@@ -127,8 +132,10 @@ public:
 	}
 
 #if WITH_EDITOR
+	//For each asset added or found, it will be saved so we can access to it in the ISM Editor
 	void OnAssetAdded(const FAssetData& AssetData);
 
+	//It will reload all world entities when we change to another map
 	void ReloadAssetData(UWorld* world);
 #endif
 
@@ -179,9 +186,11 @@ public:
 	//If a gamepad is connected to PC
 	static EPlatform defaultGamepadPlatform;
 
+	//It will check the current platform so if we use a gamepad it will change the current platform (and the same for using keyboard)
 	UFUNCTION(BlueprintCallable, Category = "ISM - Platform")
 		static void checkCurrentPlatform();
 
+	//In this function you can define the texture of each button at any platform you want
 	UFUNCTION(BlueprintCallable, Category = "ISM - Platform")
 		static UTexture2D* GetActionButtonImage(EAction actionButton);
 };
