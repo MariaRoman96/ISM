@@ -129,7 +129,7 @@ public:
 	UPROPERTY()
 		FDelegateButton delegate;
 
-	void CreateArrayElement(void * dir2, UArrayProperty* arrProp);
+	int CreateArrayElement(void * dir2, UArrayProperty* arrProp);
 
 	void DeleteAllArrayElement(void * dir2, UArrayProperty* arrProp);
 

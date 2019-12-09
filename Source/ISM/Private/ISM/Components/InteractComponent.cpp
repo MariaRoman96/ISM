@@ -5054,7 +5054,11 @@ void UInteractComponent::ExportInteractDataInternal()
 	if (interactDataArray.Num() != 0) {
 		interactDataArrayString = ExportInteractData();
 	}
-	interactDataArray.Empty();
+	if (interactDataArray.Num() > 0) {
+		//if (!IsBadReadPtr(interactDataArray.GetData(), sizeof(FInteractData))) {
+			interactDataArray.Empty();
+		//}
+	}
 }
 
 void UInteractComponent::BeginPlay()

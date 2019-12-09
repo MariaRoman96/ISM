@@ -49,7 +49,7 @@ bool UICE_Button::isCopiedTooltipData = false;
 FTooltipData UICE_Button::copiedTooltipData;
 UICE_Tooltip* UICE_Button::copiedTooltipDataWidget = nullptr;
 
-void UICE_Button::CreateArrayElement(void * dir2, UArrayProperty* arrProp)
+int UICE_Button::CreateArrayElement(void * dir2, UArrayProperty* arrProp)
 {
 #if WITH_EDITOR
 
@@ -64,7 +64,12 @@ void UICE_Button::CreateArrayElement(void * dir2, UArrayProperty* arrProp)
 	}
 	else if (It2->GetCPPType() == "FString") {
 		TArray<FString>* ArrayOfValues = arrProp->ContainerPtrToValuePtr<TArray<FString>>(dir2);
-		ArrayOfValues->Add("");
+		if (ArrayOfValues->GetSlack() > -10000000) {
+			ArrayOfValues->Add("");
+		}
+		else {
+			return -1;
+		}
 	}
 	else if (It2->GetCPPType() == "bool") {
 		TArray<bool>* ArrayOfValues = arrProp->ContainerPtrToValuePtr<TArray<bool>>(dir2);
@@ -170,6 +175,7 @@ void UICE_Button::CreateArrayElement(void * dir2, UArrayProperty* arrProp)
 		//TODO ARRAY DE ARRAY
 	}
 #endif
+	return 0;
 }
 
 void UICE_Button::DeleteAllArrayElement(void * dir2, UArrayProperty* arrProp)
@@ -975,7 +981,13 @@ void UICE_Button::ButtonAction(FTargetData data)
 				currentStage = arr->stage->wrapper->interactComponent->m_currentStage;
 			}
 			arr->basicFunc->UpdateData();
-			CreateArrayElement(arr->parent, arr->It);
+			if (CreateArrayElement(arr->parent, arr->It) < 0) {
+				arr->stage->wrapper->OnLoadStart();
+				FTimerDelegate loadingDel;
+				loadingDel.BindUFunction(arr->stage->wrapper, FName("GetAllData"), false, -1);
+				GetWorld()->GetTimerManager().SetTimer(loadingHandle, loadingDel, 1.f, false);
+				return;
+			}
 
 			// 			arr->basicFunc->UpdateData();
 			arr->basicFunc->GetData();
@@ -2629,8 +2641,16 @@ void UICE_Button::ButtonAction(FTargetData data)
 				if (undoInteractDataIndex < undoInteractData.Num() - 1) {
 					undoInteractData.RemoveAt(undoInteractDataIndex + 1, (undoInteractData.Num() - 1) - undoInteractDataIndex);
 				}
-				undoInteractData.Add(arr->stage->wrapper->interactComponent->ExportInteractData());
-				undoInteractDataIndex++;
+				if(!ISM_ISVALID(arr->stage->wrapper->interactComponent)){
+					arr->stage->wrapper->OnLoadStart();
+					FTimerDelegate loadingDel;
+					loadingDel.BindUFunction(arr->stage->wrapper, FName("GetAllData"), false, -1);
+					GetWorld()->GetTimerManager().SetTimer(loadingHandle, loadingDel, 1.f, false);
+				}
+				else {
+					undoInteractData.Add(arr->stage->wrapper->interactComponent->ExportInteractData());
+					undoInteractDataIndex++;
+				}
 			}
 		}
 		else if (arrElem) {
