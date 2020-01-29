@@ -6844,7 +6844,7 @@ void UInteractComponent::AddImpulseFunction(AActor* actor, FAddImpulseFunction& 
 				m_itemMeshes = intInt->GetActorMesh();
 			}
 			else {
-				TArray<UActorComponent*> ActorCArray = actor->GetComponentsByClass(UMeshComponent::StaticClass());
+				TArray<UActorComponent*> ActorCArray = otherItem->GetComponentsByClass(UMeshComponent::StaticClass());
 				for (int i = 0; i < ActorCArray.Num(); i++) {
 					m_itemMeshes.Add(Cast<UMeshComponent>(ActorCArray[i]));
 				}
